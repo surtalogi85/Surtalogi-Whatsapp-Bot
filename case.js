@@ -60,7 +60,7 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
             }, { quoted: m })
             break;
         case "nsfw":
-            let resns = await fetch(config.restapi + "/api/special/waifu");
+            let resns = await fetch(config.restapi + "/api/special/nsfw");
             let jsonns = await resns.json();
             let nsfw = jsonns.image;
             if (nsfw.includes(".gif")) return conn.sendMessage(m.chat, {
