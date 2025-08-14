@@ -67,7 +67,7 @@ async function main() {
         if (!conn.authState.creds.registered) {
             console.log(chalk.cyan("Please Insert Your Number. Ex. 628xxxx:"));
             const phoneNumber = await question(chalk.cyan(""));
-            const code = await conn.requestPairingCode(phoneNumber, config.pairing.CostumPairingCode);
+            const code = await conn.requestPairingCode(phoneNumber);
             console.log(chalk.magenta(`This is your pairing code: ${code}`));
         }
     } else {
