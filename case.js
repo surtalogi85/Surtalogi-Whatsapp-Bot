@@ -50,7 +50,9 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
             } catch { m.reply(`UID Tidak ditemukan atau API sedang error`) }
             break;
         case "waifu":
-            let waifu = (await fetch(config.restapi + "/api/special/waifu")).json().image
+            let reswa = await fetch(config.restapi + "/api/special/waifu");
+            let jsonwa = await reswa.json();
+            let waifu = jsonwa.image;
             conn.sendMessage(m.chat, {
                 image: { url: waifu },
                 caption: "Ini Kak Waifunya\n\n@surtalogi_",
