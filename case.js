@@ -59,6 +59,16 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
                 mentions: [m.sender]
             }, { quoted: m })
             break;
+        case "nsfw":
+            let resns = await fetch(config.restapi + "/api/special/waifu");
+            let jsonns = await resns.json();
+            let nsfw = jsonns.image;
+            conn.sendMessage(m.chat, {
+                image: { url: nsfw },
+                caption: "Ini Kak Waifunya\n\n@surtalogi_",
+                mentions: [m.sender]
+            }, { quoted: m })
+            break;
         case "stiker":
         case "sticker":
         case "s":
