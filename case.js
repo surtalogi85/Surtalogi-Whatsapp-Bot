@@ -50,8 +50,9 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
             } catch { m.reply(`UID Tidak ditemukan atau API sedang error`) }
             break;
         case "waifu":
+            let waifu = (await fetch(config.restapi + "/api/special/waifu")).json().image
             conn.sendMessage(m.chat, {
-                image: { url: `https://api.fg-project.xyz/api/downloader/waifu` },
+                image: { url: waifu },
                 caption: "Ini Kak Waifunya\n\n@surtalogi_",
                 mentions: [m.sender]
             }, { quoted: m })
