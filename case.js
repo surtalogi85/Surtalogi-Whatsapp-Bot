@@ -64,10 +64,10 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
             let jsonns = await resns.json();
             let nsfw = jsonns.image;
             if (nsfw.includes(".gif")) return conn.sendMessage(m.chat, {
-                    video: { url: nsfw },
-                    caption: "\n\n@surtalogi_",
-                }, { quoted: m })
-            
+                video: { url: nsfw },
+                caption: "\n\n@surtalogi_",
+            }, { quoted: m })
+
             conn.sendMessage(m.chat, {
                 image: { url: nsfw },
                 caption: "\n\n@surtalogi_",
@@ -117,6 +117,9 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
             if (m.isOwner) {
                 m.reply(`[ @Surtalogi_ V1.0 ]\n\n- .hr (HideReceiveMessage)\n- .sr (SendReadStatus)\n- .cfc (CreateFakeChat)\n- .lock-on (Lock GPU & CPU Speed to Max)\n- .kill (Kill Process by Query)`)
             }
+            break;
+        case "del":
+            conn.sendMessage(m.chat, { delete: m.quoted })
             break;
         case "rvo":
             let _viewonce = m?.quoted?.imageMessage?.viewOnce || m?.quoted?.videoMessage?.viewOnce || false
