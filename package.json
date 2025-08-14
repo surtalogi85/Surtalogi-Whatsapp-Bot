@@ -1,20 +1,30 @@
 {
-  "name": "surtalogi-whatsapp-bot",
+  "name": "wa-bot",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/surtalogi85/Surtalogi-Whatsapp-Bot.git"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/surtalogi85/Surtalogi-Whatsapp-Bot/issues"
+  "description": "",
+  "dependencies": {
+    "awesome-phonenumber": "^7.5.0",
+    "axios": "^1.11.0",
+    "baileys": "npm:baileys-mod",
+    "chalk": "^2.4.2",
+    "cheerio": "^1.1.2",
+    "jimp": "^0.16.13",
+    "node-cache": "^5.1.2",
+    "wa-sticker-formatter": "^4.4.4"
   },
-  "homepage": "https://github.com/surtalogi85/Surtalogi-Whatsapp-Bot#readme"
+  "devDependencies": {
+    "@babel/generator": "^7.28.0",
+    "@babel/parser": "^7.28.0",
+    "@babel/traverse": "^7.28.0",
+    "fs-extra": "^11.3.1",
+    "glob": "^11.0.3",
+    "javascript-obfuscator": "^4.1.1"
+  }
 }
