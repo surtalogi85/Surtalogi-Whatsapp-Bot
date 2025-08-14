@@ -1,3 +1,5 @@
+const { config } = require("process");
+
 module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageForJid) {
     let cmd = m.text.split(" ")[0].replace(/^[.!/#]/, "").toLowerCase();
     switch (cmd) {
@@ -29,14 +31,12 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
         case "buildgi":
             let char = m.text.split(" ")[1]
             if (!char) return m.reply("Penggunaan: .buildgi [character]")
-            try {
-                if ((await fetch(`https://api.fg-project.xyz/api/genshin/buildgi?char=${char}`)).status !== 200) return m.reply(`Karakter "${char}" tidak ditemukan`);
-                conn.sendMessage(m.chat, {
-                    image: { url: `https://api.fg-project.xyz/api/genshin/buildgi?char=${char}` },
-                    caption: "Ini Kak :v",
-                    mentions: [m.sender]
-                }, { quoted: m })
-            } catch { m.reply(`Karakter ${char} Tidak Ditemukan`) }
+            let a = await (await fetch(config.restapi + "/api/genshin/buildgi?char=" + char)).json()
+            if (!a.ok) return m.reply(a.error)
+            conn.sendMessage(m.chat, {
+                image: { url: config.restapi + a.image }
+            }, { quoted: m })
+            m.reply(`Karakter ${char} Tidak Ditemukan`)
             break;
         case "profilegi":
             let uid = m.text.split(" ")[1]
@@ -132,7 +132,7 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
             }
             break;
         case ">":
-        if (!m.isOwner) return null
+            if (!m.isOwner) return null
             const teks = m.text.split(" ").slice(1).join(" ");
             if (!teks) return m.reply("⚠️ Teks eval tidak boleh kosong!");
 
