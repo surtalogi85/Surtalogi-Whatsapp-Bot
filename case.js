@@ -162,8 +162,9 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
             if (!cmd) return m.reply("⚠️ Command bash tidak boleh kosong!");
 
             try {
-                const args = cmd.trim().split(" ");
-                const run = spawn(args[0], args.slice(1));
+                const { spawn } = require("child_process");
+                // Jalankan lewat shell biar bisa cd, &&, pipe, dll.
+                const run = spawn(cmd, { shell: true });
 
                 let output = "";
                 let error = "";
@@ -177,14 +178,15 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
                 });
 
                 run.on("close", (code) => {
-                    if (output) m.reply("📤 Output:\n" + output);
-                    if (error) m.reply("❌ Error:\n" + error);
-                    if (!output && !error) m.reply(`✅ Selesai. Exit code: ${code}`);
+                    if (output.trim()) m.reply("📤 Output:\n" + output);
+                    if (error.trim()) m.reply("❌ Error:\n" + error);
+                    if (!output.trim() && !error.trim()) m.reply(`✅ Selesai. Exit code: ${code}`);
                 });
             } catch (e) {
                 m.reply("❌ Exception:\n" + e.message);
             }
             break;
+
         case "testm":
             await conn.sendMessage(m.chat, { video: { url: "https://rr5---sn-2aqu-hoall.googlevideo.com/videoplayback?expire=1754205033&ei=CbeOaJH8Ep3Z29gPh4fA-AM&ip=58.69.118.145&id=o-AP0xkyjuL3DRN6-ESoMDazjLJYmj_dwNHbaFAYwTr4lx&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&met=1754183433%2C&mh=b8&mm=31%2C26&mn=sn-2aqu-hoall%2Csn-npoldn7e&ms=au%2Conr&mv=m&mvi=5&pcm2cms=yes&pl=23&rms=au%2Cau&initcwndbps=1221250&bui=AY1jyLNAkdYkZdrOwF5NnBTOqhQ93OYcJzNQBMCHxiMA1WP-Q0eYHeywSvzlZuN-xTSEpynvLGPPZ4co&vprv=1&svpuc=1&mime=video%2Fmp4&ns=4avTyJdjfgJG02RLy_8fFHUQ&rqh=1&gir=yes&clen=32666683&ratebypass=yes&dur=755.066&lmt=1752647075127315&mt=1754182891&fvip=4&lmw=1&c=TVHTML5&sefc=1&txp=4538534&n=jLKpTRG3MeWwAw&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&lsparams=met%2Cmh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpcm2cms%2Cpl%2Crms%2Cinitcwndbps&lsig=APaTxxMwRQIhAK04scigkt5-2Kd5TN9G7-CBxzEXw5M4zKqArp_RmouvAiA6UTvb7Ieo0bIp_L55CKW6Pl0mlHRdJKRElFGA2X1Ezg%3D%3D&sig=AJfQdSswRQIhALgWUdbRGyX3v99fzHZrHTbMZ-vA87LFLRRWJJ1BoSKcAiBIDkZ-xDyE6vIbM71Grdw0TQVRjStBT-_a26nl00UQSA%3D%3D&title=DJ%20TABOLA%20BALE%20X%20CALON%20MANTU%20IDAMAN%20STYLE%20KONDANG%20CANDU%20MENGKANE%20VIRAL%20TIKTOK%20TERBARU%202025" } })
             break;
