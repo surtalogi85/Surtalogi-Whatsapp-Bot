@@ -1,4 +1,4 @@
-const { config } = require("process");
+const { config } = require("./config.js");
 
 module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageForJid) {
     let cmd = m.text.split(" ")[0].replace(/^[.!/#]/, "").toLowerCase();
