@@ -34,9 +34,8 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
             let a = await (await fetch(config.restapi + "/api/genshin/buildgi?char=" + char)).json()
             if (!a.ok) return m.reply(a.error)
             conn.sendMessage(m.chat, {
-                image: { url: config.restapi + a.image }
+                image: { url: config.restapi + a.image }, caption: "Ini Build Dari " + char + "\n\n@surtalogi_"
             }, { quoted: m })
-            m.reply(`Karakter ${char} Tidak Ditemukan`)
             break;
         case "profilegi":
             let uid = m.text.split(" ")[1]
