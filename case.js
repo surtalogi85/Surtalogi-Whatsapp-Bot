@@ -63,9 +63,14 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
             let resns = await fetch(config.restapi + "/api/special/waifu");
             let jsonns = await resns.json();
             let nsfw = jsonns.image;
+            if (nsfw.includes(".gif")) return conn.sendMessage(m.chat, {
+                    video: { url: nsfw },
+                    caption: "\n\n@surtalogi_",
+                }, { quoted: m })
+            
             conn.sendMessage(m.chat, {
                 image: { url: nsfw },
-                caption: "Ini Kak Waifunya\n\n@surtalogi_",
+                caption: "\n\n@surtalogi_",
                 mentions: [m.sender]
             }, { quoted: m })
             break;
