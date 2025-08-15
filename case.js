@@ -58,7 +58,8 @@ text: `╭──❒ 「 *Surtalogi* 」 ❒
 │ ◦ .s
 └───────────
 
-© 2024–2025 Surtalogi`
+© 2024–2025 Surtalogi`,
+mentions: ["6285176708678@s.whatsapp.net", m.sender]
             })
             break;
         case "buildgi":
