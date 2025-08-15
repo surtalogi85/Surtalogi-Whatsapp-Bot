@@ -87,7 +87,6 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
                             },
                             "nativeFlowMessage": {
                                 buttons: [
-                                    // Copy ke clipboard
                                     {
                                         name: "cta_copy",
                                         buttonParamsJson: JSON.stringify({
@@ -95,7 +94,6 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
                                             copy_code: "081234567890"
                                         })
                                     },
-                                    // Buka link
                                     {
                                         name: "cta_url",
                                         buttonParamsJson: JSON.stringify({
@@ -103,7 +101,6 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
                                             url: "https://example.com"
                                         })
                                     },
-                                    // Telepon langsung
                                     {
                                         name: "cta_call",
                                         buttonParamsJson: JSON.stringify({
@@ -111,41 +108,25 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
                                             phone_number: "+6285176708678"
                                         })
                                     },
-                                    // Join grup WA
                                     {
-                                        name: "cta_join_group",
+                                        name: "single_select",
                                         buttonParamsJson: JSON.stringify({
-                                            display_text: "Join Grup Bot",
-                                            group_jid: "6285176708678-1234567890@g.us"
-                                        })
-                                    },
-                                    // Quick Reply (langsung kirim pesan preset)
-                                    {
-                                        name: "cta_quick_reply",
-                                        buttonParamsJson: JSON.stringify({
-                                            display_text: "Setuju",
-                                            id: "yes"
-                                        })
-                                    },
-                                    {
-                                        name: "cta_quick_reply",
-                                        buttonParamsJson: JSON.stringify({
-                                            display_text: "Tidak",
-                                            id: "no"
-                                        })
-                                    },
-                                    // Open katalog bisnis
-                                    {
-                                        name: "cta_open_catalog",
-                                        buttonParamsJson: JSON.stringify({
-                                            display_text: "Lihat Produk"
-                                        })
-                                    },
-                                    // Open keranjang katalog
-                                    {
-                                        name: "cta_open_cart",
-                                        buttonParamsJson: JSON.stringify({
-                                            display_text: "Keranjang"
+                                            title: "Pilih Menu",
+                                            sections: [
+                                                {
+                                                    title: "Pembayaran",
+                                                    rows: [
+                                                        { title: "Dana", id: "menu_dana" },
+                                                        { title: "Gopay", id: "menu_gopay" }
+                                                    ]
+                                                },
+                                                {
+                                                    title: "Lainnya",
+                                                    rows: [
+                                                        { title: "Owner", id: "menu_owner" }
+                                                    ]
+                                                }
+                                            ]
                                         })
                                     }
                                 ],
