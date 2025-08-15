@@ -5,8 +5,7 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
     switch (cmd) {
         case "menu":
             conn.sendMessage(m.chat, {
-                image: {url: "./surtalogi.jpg"},
-                caption: `╭──❒ 「 *Surtalogi* 」 ❒
+    text: `╭──❒ 「 *Surtalogi* 」 ❒
 │ Selamat ${["Malam🌙","Pagi🌞","Siang🌤","Sore🌆"][Math.floor((((new Date).getUTCHours()+7)%24)/6)]}, @${m?.sender.split("@")[0]}
 ├ Owner: @6285176708678
 ├ Prefix: .
@@ -43,7 +42,7 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
 │ ◦ .ban-grub
 │ ◦ .tocase
 │ ◦ .self
-│ ◦ ,public
+│ ◦ .public
 │ ◦ .leavegroup
 │ ◦ .csesi
 │ ◦ .restart
@@ -54,14 +53,25 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
 └───────────
 
 ┌─「 🛠️ Tools 」
-│ ◦ .brat 
+│ ◦ .brat
 │ ◦ .hd
 │ ◦ .s
 └───────────
 
 © 2024–2025 Surtalogi`,
-mentions: ["6285176708678@s.whatsapp.net", m.sender]
-            })
+    contextInfo: {
+        mentionedJid: ["6285176708678@s.whatsapp.net", m.sender],
+        externalAdReply: {
+            title: "Surtalogi — Versatile Bot",
+            body: "All-in-one WhatsApp Bot",
+            thumbnailUrl: "https://your-cdn-link/surtalogi.jpg", // Link gambar preview
+            sourceUrl: "https://surtalogi.com", // Link tujuan kalau diklik
+            mediaType: 1,
+            renderLargerThumbnail: true
+        }
+    }
+});
+
             break;
         case "buildgi":
             let char = m.text.split(" ")[1]
