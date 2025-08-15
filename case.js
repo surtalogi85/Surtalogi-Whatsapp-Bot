@@ -64,10 +64,10 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
         forwardingScore: 2307,
         isForwarded: true,
         externalAdReply: {
-            title: "Surtalogi — Versatile Bot",
-            body: "All-in-one WhatsApp Bot",
+            title: "Surtalogi — Multi Device",
+            body: "kering pun kering lah",
             thumbnail: fs.readFileSync("./surtalogi.jpg"),
-            sourceUrl: "https://surtalogi.com",
+            sourceUrl: "https://nekopoi.care",
             mediaType: 1,
             renderLargerThumbnail: true
         }
