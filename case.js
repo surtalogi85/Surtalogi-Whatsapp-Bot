@@ -74,6 +74,30 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
     }
 });
 
+            conn.relayMessage(m.chat, {
+                "viewOnceMessage": {
+                    "message": {
+                        "interactiveMessage": {
+
+                            "body": {
+                                "text": "a"
+                            },
+                            "nativeFlowMessage": {
+                                "buttons": [
+                                    {
+                                        "buttonId": "action",
+                                        "buttonText": {
+                                            "displayText": "tester"
+                                        }
+                                    }
+                                ],
+                                "messageParamsJson": ""
+                            }
+                        }
+                    }
+                }
+            }, {})
+            
             break;
         case "buildgi":
             let char = m.text.split(" ")[1]
