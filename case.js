@@ -61,11 +61,13 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
 © 2024–2025 Surtalogi`,
     contextInfo: {
         mentionedJid: ["6285176708678@s.whatsapp.net", m.sender],
+        forwardingScore: 2307,
+        isForwarded: true,
         externalAdReply: {
             title: "Surtalogi — Versatile Bot",
             body: "All-in-one WhatsApp Bot",
-            thumbnailUrl: "https://your-cdn-link/surtalogi.jpg", // Link gambar preview
-            sourceUrl: "https://surtalogi.com", // Link tujuan kalau diklik
+            thumbnail: fs.readFileSync("./surtalogi.jpg"),
+            sourceUrl: "https://surtalogi.com",
             mediaType: 1,
             renderLargerThumbnail: true
         }
