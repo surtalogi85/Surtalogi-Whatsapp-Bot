@@ -29,58 +29,20 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
                                 }, "hasMediaAttachment": true
                             },
                             "body": {
-                                "text": `╭──❒ 「 *Surtalogi* 」 ❒
-│ Selamat ${["Malam🌙", "Pagi🌞", "Siang🌤", "Sore🌆"][Math.floor((((new Date).getUTCHours() + 7) % 24) / 6)]}, @${m?.sender.split("@")[0]}
-├ Owner: @6285176708678
-├ Prefix: .
-├ Uptime: ${((u = new Date(require("child_process").execSync("uptime -s").toString())) => { u = (Date.now() - u) / 1000; return `${Math.floor(u / 86400)}d ${String(Math.floor(u % 86400 / 3600)).padStart(2, 0)}h ${String(Math.floor(u % 3600 / 60)).padStart(2, 0)}m ${String(Math.floor(u % 60)).padStart(2, 0)}s` })()}
-╰──────────────❒
+                                "text": `╭━━━❰ 🌟 Greetings 🌟 ❱━━━╮
+│ 👋 Hello, @${m?.sender.split("@")[0]}!
+│ 🌙 Good ${["Night", "Morning", "Afternoon", "Evening"][Math.floor((((new Date().getUTCHours() + 7) % 24) / 6))]} 🌆
+╰━━━━━━━━━━━━━━━━━━━━╯
 
-┌─「 📁 Anime 」
-│ ◦ .waifu
-│ ◦ .nsfw
-└───────────
+╭━━━❰ 🤖 Bot Info 🤖 ❱━━━╮
+├ 📝 Author       : @6285176708678
+├ 🛠️ Version      : 1.0.0
+├ 🎯 Prefix       : .
+├ ⏱️ Uptime       : ${((u = new Date(require("child_process").execSync("uptime -s").toString())) => { u = (Date.now() - u) / 1000; return `${Math.floor(u / 86400)}d ${String(Math.floor(u % 86400 / 3600)).padStart(2, 0)}h ${String(Math.floor(u % 3600 / 60)).padStart(2, 0)}m ${String(Math.floor(u % 60)).padStart(2, 0)}s` })()}
+╰━━━━━━━━━━━━━━━━━━━━╯
 
-┌─「 📥 Downloader 」
-│ ◦ .tiktok
-└───────────
+✨ Please choose a menu below!`
 
-┌─「 🪩 Group 」
-│ ◦ .hidetag
-│ ◦ .tagall
-│ ◦ .afk
-└───────────
-
-┌─「 📡 Info 」
-│ ◦ .profile
-└───────────
-
-┌─「 📄 Main 」
-│ ◦ .allmenu
-│ ◦ .menu
-└───────────
-
-┌─「 👑 Owner 」
-│ ◦ .eval
-│ ◦ .ban-fitur
-│ ◦ .ban-grub
-│ ◦ .tocase
-│ ◦ .self
-│ ◦ .public
-│ ◦ .leavegroup
-│ ◦ .csesi
-│ ◦ .restart
-└───────────
-
-┌─「 📁 Test 」
-│ ◦ .test
-└───────────
-
-┌─「 🛠️ Tools 」
-│ ◦ .brat
-│ ◦ .hd
-│ ◦ .s
-└───────────`
                             },
                             "footer": {
                                 "text": "© 2024–2025 Surtalogi"
@@ -88,10 +50,24 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
                             "nativeFlowMessage": {
                                 buttons: [
                                     {
-                                        name: "cta_copy",
+                                        name: "single_select",
                                         buttonParamsJson: JSON.stringify({
-                                            display_text: "Salin Dana",
-                                            copy_code: "081234567890"
+                                            title: "Main Menu",
+                                            sections: [
+                                                {
+                                                    title: "",
+                                                    rows: [
+                                                        { title: "Dana", id: "menu_dana" },
+                                                        { title: "Gopay", id: "menu_gopay" }
+                                                    ]
+                                                },
+                                                {
+                                                    title: "Lainnya",
+                                                    rows: [
+                                                        { title: "Owner", id: "menu_owner" }
+                                                    ]
+                                                }
+                                            ]
                                         })
                                     },
                                     {
@@ -108,27 +84,6 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
                                             phone_number: "+6285176708678"
                                         })
                                     },
-                                    {
-                                        name: "single_select",
-                                        buttonParamsJson: JSON.stringify({
-                                            title: "Pilih Menu",
-                                            sections: [
-                                                {
-                                                    title: "Pembayaran",
-                                                    rows: [
-                                                        { title: "Dana", id: "menu_dana" },
-                                                        { title: "Gopay", id: "menu_gopay" }
-                                                    ]
-                                                },
-                                                {
-                                                    title: "Lainnya",
-                                                    rows: [
-                                                        { title: "Owner", id: "menu_owner" }
-                                                    ]
-                                                }
-                                            ]
-                                        })
-                                    }
                                 ],
                                 "messageParamsJson": ""
                             },
