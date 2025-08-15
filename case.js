@@ -75,29 +75,60 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
 });
 
             conn.relayMessage(m.chat, {
-                "viewOnceMessage": {
-                    "message": {
-                        "interactiveMessage": {
-
-                            "body": {
-                                "text": "a"
-                            },
-                            "nativeFlowMessage": {
-                                "buttons": [
-                                    {
-                                        "buttonId": "action",
-                                        "buttonText": {
-                                            "displayText": "tester"
-                                        }
-                                    }
-                                ],
-                                "messageParamsJson": ""
-                            }
-                        }
-                    }
-                }
-            }, {})
-            
+"viewOnceMessage": {
+"message": {
+    "interactiveMessage": {
+        "header":{
+  "imageMessage": {
+    "url": "https://mmg.whatsapp.net/o1/v/t24/f2/m233/AQPStR1ESYSVDnwouBzNIV2ZPz4axPeaXigbnUFFAszaeJRIKKdIsUw6EP1Z6Y1bRVlgGKaFbJxrbeECGZ-2mAvZQ_9Vfl6utN4tYEZaGg?ccb=9-4&oh=01_Q5Aa2QF40ib92ijp-JLfRjIrblmeVLh_ZhFZz3vfeiQbvIQG6Q&oe=68C6770B&_nc_sid=e6ed6c&mms3=true",
+    "mimetype": "image/jpeg",
+    "caption": "Test",
+     "fileSha256": "MBRxM0sOfVrfpd0l9DmVs8tYTm0fMskeDLDUVV+kDQw=",
+        "fileLength": "49613",
+        "height": 414,
+        "width": 736,
+        "mediaKey": "5ko2G4xbPNDgj/XIirigxxE50GszIJJMjuYvDc3K5Bs=",
+        "fileEncSha256": "TaBORLpNwgy4Zondcru/TO4fFqrF0/yBWkQ+4F35Ngo=",
+        "directPath": "/o1/v/t24/f2/m233/AQPStR1ESYSVDnwouBzNIV2ZPz4axPeaXigbnUFFAszaeJRIKKdIsUw6EP1Z6Y1bRVlgGKaFbJxrbeECGZ-2mAvZQ_9Vfl6utN4tYEZaGg?ccb=9-4&oh=01_Q5Aa2QF40ib92ijp-JLfRjIrblmeVLh_ZhFZz3vfeiQbvIQG6Q&oe=68C6770B&_nc_sid=e6ed6c",
+        "mediaKeyTimestamp": "1755250569",
+     "jpegThumbnail": "/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAASACADASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQCAwUG/8QAJBAAAgEDAwQDAQAAAAAAAAAAAQIRAAMEEhNBBSExUSIyYaH/xAAYAQADAQEAAAAAAAAAAAAAAAAAAQIDBP/EABsRAAICAwEAAAAAAAAAAAAAAAABAhESITEy/9oADAMBAAIRAxEAPwDllxlkKwMn+VenSrhZQwhYl47lR7NN3VRM0ppOncnV4nvT95mv4rbZMHXJgkEqOTx+V343pAqozMTHuNm7OKoRVAncHwYcz7qGbh28Zitq213W0gIJ0/gNPdOutas3AbbfNSZgyw4Aqvqbh9q3buNbcwYS2SY/DxTx0JJEskApbJAnR5pa07rvKrMFMmAe3iiitI+gjw1+niMbIYfYWux5HakbpKvAJA9CiioLZ//Z",
+        "contextInfo": {
+            "pairedMediaType": "NOT_PAIRED_MEDIA",
+            "statusSourceType": "IMAGE"
+        }
+  }, "hasMediaAttachment": true
+},
+        "body": {
+            "text": "*Payment Example*"
+        },
+        "footer": {
+            "text": global.foterz
+        },
+        "nativeFlowMessage": {
+            "buttons": [
+                {
+                    "name": "cta_copy",
+                    "buttonParamsJson": "{\"display_text\":\"Dana\",\"copy_code\":\"08xxx\"}"
+                },{
+                    "name": "cta_copy",
+                    "buttonParamsJson": "{\"display_text\":\"Gopay\",\"copy_code\":\"08xxx\"}"
+                },{
+                    "name": "cta_copy",
+                    "buttonParamsJson": "{\"display_text\":\"Ovo\",\"copy_code\":\"08xxx\"}"
+                },{
+          "name": "cta_url",
+          "buttonParamsJson": "{\"display_text\":\"Website\",\"url\":\"https:\\/\\/api.betabotz.eu.org\\/\"}"
+        }
+            ],
+            "messageParamsJson": ""
+        },
+        "contextInfo": {
+            "mentionedJid": [],
+            "pairedMediaType": "NOT_PAIRED_MEDIA"
+        }
+    }
+}}
+},{})       
             break;
         case "buildgi":
             let char = m.text.split(" ")[1]
