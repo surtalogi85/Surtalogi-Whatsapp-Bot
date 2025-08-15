@@ -45,7 +45,7 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
 
                             },
                             "footer": {
-                                "text": "© 2024–2025 Surtalogi"
+                                "text": "© 2025–2026 Surtalogi"
                             },
                             "nativeFlowMessage": {
                                 buttons: [
@@ -68,13 +68,13 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
                                         name: "cta_url",
                                         buttonParamsJson: JSON.stringify({
                                             display_text: "Website",
-                                            url: "https://example.com"
+                                            url: "https://api.fg-project.xyz"
                                         })
                                     },
                                     {
                                         name: "cta_call",
                                         buttonParamsJson: JSON.stringify({
-                                            display_text: "Hubungi Owner",
+                                            display_text: "Contact Owner",
                                             phone_number: "+6285176708678"
                                         })
                                     },
