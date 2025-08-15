@@ -5,7 +5,7 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
     switch (cmd) {
         case "menu":
             conn.sendMessage(m.chat, {
-                image: {url: "https://id.pinterest.com/pin/481674122667483597/"},
+                image: require(fs).readFileSync("./surtalogi.jpg"),
                 caption: `╭──❒ 「 *Surtalogi* 」 ❒
 │ Selamat ${["Malam🌙","Pagi🌞","Siang🌤","Sore🌆"][Math.floor((((new Date).getUTCHours()+7)%24)/6)]}, @${m?.sender.split("@")[0]}
 ├ Owner: @6285176708678
