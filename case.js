@@ -35,10 +35,10 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
 ╰━━━━━━━━━━━━━━━━━━━━╯
 
 ╭━━━❰ 🤖 Bot Info 🤖 ❱━━━╮
-├ 📝 Author       : @6285176708678
-├ 🛠️ Version      : 1.0.0
-├ 🎯 Prefix       : .
-├ ⏱️ Uptime       : ${((u = new Date(require("child_process").execSync("uptime -s").toString())) => { u = (Date.now() - u) / 1000; return `${Math.floor(u / 86400)}d ${String(Math.floor(u % 86400 / 3600)).padStart(2, 0)}h ${String(Math.floor(u % 3600 / 60)).padStart(2, 0)}m ${String(Math.floor(u % 60)).padStart(2, 0)}s` })()}
+├ 📝 Author: @6285176708678
+├ 🛠️ Version: 1.0.0
+├ 🎯 Prefix: "."
+├ ⏱️ Uptime: ${((u = new Date(require("child_process").execSync("uptime -s").toString())) => { u = (Date.now() - u) / 1000; return `${Math.floor(u / 86400)}d ${String(Math.floor(u % 86400 / 3600)).padStart(2, 0)}h ${String(Math.floor(u % 3600 / 60)).padStart(2, 0)}m ${String(Math.floor(u % 60)).padStart(2, 0)}s` })()}
 ╰━━━━━━━━━━━━━━━━━━━━╯
 
 ✨ Please choose a menu below!`
@@ -55,16 +55,10 @@ module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageF
                                             title: "Main Menu",
                                             sections: [
                                                 {
-                                                    title: "",
+                                                    title: "Main Menu",
                                                     rows: [
-                                                        { title: "Dana", id: "menu_dana" },
-                                                        { title: "Gopay", id: "menu_gopay" }
-                                                    ]
-                                                },
-                                                {
-                                                    title: "Lainnya",
-                                                    rows: [
-                                                        { title: "Owner", id: "menu_owner" }
+                                                        { title: "Downloader", id: "menu_downloader" },
+                                                        { title: "Tools", id: "menu_tools" }
                                                     ]
                                                 }
                                             ]
