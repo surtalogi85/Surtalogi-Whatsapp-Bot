@@ -3,30 +3,64 @@ const { config } = require("./config.js");
 module.exports = async function (m, conn, qch, messageTimestamp, getLastMessageForJid) {
     let cmd = m.text.split(" ")[0].replace(/^[.!/#]/, "").toLowerCase();
     switch (cmd) {
-        case "testbaten":
-            conn.relayMessage(m.chat, {
-                "viewOnceMessage": {
-                    "message": {
-                        "interactiveMessage": {
+        case "menu":
+            conn.sendMessage(m.chat, {
+text: `╭──❒ 「 *Surtalogi* 」 ❒
+│ Selamat ${["Malam🌙","Pagi🌞","Siang🌤","Sore🌆"][Math.floor((((new Date).getUTCHours()+7)%24)/6)]}, @${m?.sender.split("@")[0]}
+│
+├ Owner: @6285176708678
+├ Prefix: .
+├ Uptime: ${((u=new Date(require("child_process").execSync("uptime -s").toString()))=>{u=(Date.now()-u)/1000;return`${Math.floor(u/86400)}d ${String(Math.floor(u%86400/3600)).padStart(2,0)}h ${String(Math.floor(u%3600/60)).padStart(2,0)}m ${String(Math.floor(u%60)).padStart(2,0)}s`})()}
+╰──────────────❒
 
-                            "body": {
-                                "text": "a"
-                            },
-                            "nativeFlowMessage": {
-                                "buttons": [
-                                    {
-                                        "buttonId": "action",
-                                        "buttonText": {
-                                            "displayText": "tester"
-                                        }
-                                    }
-                                ],
-                                "messageParamsJson": ""
-                            }
-                        }
-                    }
-                }
-            }, {})
+┌─「 📁 Anime 」
+│ ◦ .waifu
+│ ◦ .nsfw
+└───────────
+
+┌─「 📥 Downloader 」
+│ ◦ .tiktok
+└───────────
+
+┌─「 🪩 Group 」
+│ ◦ .hidetag
+│ ◦ .tagall
+│ ◦ .afk
+└───────────
+
+┌─「 📡 Info 」
+│ ◦ .profile
+└───────────
+
+┌─「 📄 Main 」
+│ ◦ .allmenu
+│ ◦ .menu
+└───────────
+
+┌─「 👑 Owner 」
+│ ◦ .eval
+│ ◦ .ban-fitur
+│ ◦ .ban-grub
+│ ◦ .tocase
+│ ◦ .self
+│ ◦ ,public
+│ ◦ .leavegroup
+│ ◦ .csesi
+│ ◦ .restart
+└───────────
+
+┌─「 📁 Test 」
+│ ◦ .test
+└───────────
+
+┌─「 🛠️ Tools 」
+│ ◦ .brat 
+│ ◦ .hd
+│ ◦ .s
+└───────────
+
+© 2024–2025 Surtalogi`
+            })
             break;
         case "buildgi":
             let char = m.text.split(" ")[1]
