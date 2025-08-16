@@ -5,7 +5,7 @@ let config = {
         usePairingCode: true
     },
     botName: "The Foul Sinner",
-    owner: ["6285176708678"],
+    owner: ["6285176708678", "6289520430523"],
     premium: ["6285176708678"],
     prembot: ["6285176708678"]
 }
